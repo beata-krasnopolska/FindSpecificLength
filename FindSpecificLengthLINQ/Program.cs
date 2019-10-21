@@ -20,13 +20,20 @@ namespace FindSpecificLengthLINQ
                            where city.Length >= wordLength
                            orderby city
                            select city;
+            var myCitiesLambda = Cities.Where(x => x.Length > wordLength).OrderBy(x => x);
 
             Console.WriteLine("Words with a minimum length of {0} characters are:", wordLength);
+            Console.WriteLine("First check by LINQ query:");
             foreach (var city in myCities)
             {
                 Console.WriteLine(city);
             }
-
+            Console.WriteLine();
+            Console.WriteLine("Second check by LINQ method:");
+            foreach (var i in myCitiesLambda)
+            {
+                Console.WriteLine(i);
+            }
             Console.ReadKey();
         }
     }
